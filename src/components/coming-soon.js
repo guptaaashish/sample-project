@@ -1,6 +1,6 @@
 const ComingSoon = () => {
     return (
-        <div className="flex items-center justify-center h-[90vh]">
+        <div className="flex items-center justify-center h-[80vh]">
             <div className="container">
                 <div className="p-5 md:p-20 mx-2">
                     <div className="text-center">
