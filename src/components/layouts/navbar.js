@@ -7,10 +7,15 @@ const Navbar = () => {
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
-                        <a href="/">
-                            <h2 className="text-2xl font-bold">LOGO</h2>
-                        </a>
-                        <div className="md:hidden">
+                        <div>
+                            <div className="border-2 font-extrabold bg-[yellow] w-[36px] p-[8px] h-[36px] flex justify-center item-center rounded-full border-[#62BBCB] landing-[10.8px]">
+                                <div className="text-[8px]">LOGO</div>
+                            </div>
+                        </div>
+                        <div className="flex justify-between items-center ">
+                            <div>
+                                <img src="/bell.png" alt="bellIcon"/>
+                            </div>
                             <button
                                 className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
                                 onClick={() => setNavbar(!navbar)}

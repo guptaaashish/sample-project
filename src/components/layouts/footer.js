@@ -1,30 +1,36 @@
 
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import useDarkMode from "../../utils/useDarkMode";
 const Footer = () => {
     const [colorTheme, setTheme] = useDarkMode();
+    const [active, setActive] = useState("home");
+    // const isActive = router.asPath === item.href;
     return (
         <footer className="w-full bg-white shadow dark:bg-black">
-            <div className="justify-between p-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+            <div className="justify-center p-4 mx-auto items-center flex flex-wrap md:px-8">
                 <div>
                     <div
-                        className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0`}
+                        className={`flex-1 justify-self-center pb-3 md:block md:pb-0 mt-0`}
                     >
-                        <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                            <li className="dark:text-white text-gray-600 hover:text-blue-600">
-                                <a href="/">Home</a>
+                        <ul className="items-center justify-center space-y-8 flex flex-wrap space-x-6 space-y-0">
+                            <li className={`flex dark:text-white text-gray-600 hover:text-blue-600 ${active === "home" ? "selected" : ""}`} onClick={()=>setActive("home")}>
+                                <Link to="/" className="flex gap-2"><img src="./home-icon.svg"/> {active === "home" ? "Home" : ""}</Link>
                             </li>
-                            <li className="dark:text-white text-gray-600 hover:text-blue-600">
-                                <a href="/menu">Menu</a>
+                            <li className={`dark:text-white text-gray-600 hover:text-blue-600 ${active === "menu" ? "selected" : ""}`} onClick={()=>setActive("menu")}>
+                                <Link to="/menu" className="flex gap-2"><img src="./menu-icon.svg"/> {active === "menu" ? "Menu" : ""}</Link>
                             </li>
-                            <li className="dark:text-white text-gray-600 hover:text-blue-600">
-                                <a href="/call">Call</a>
+                            <li className={`dark:text-white text-gray-600 hover:text-blue-600 ${active === "call" ? "selected" : ""}`} onClick={()=>setActive("call")}>
+                                <Link to="/call" className="flex gap-2"><img src="./call-icon.svg"/>  {active === "call" ? "Call" : ""}</Link>
                             </li>
-                            <li className="dark:text-white text-gray-600 hover:text-blue-600">
-                                <a href="/admin">Admin</a>
+                            <li className={`dark:text-white text-gray-600 hover:text-blue-600 ${active === "admin" ? "selected" : ""}`} onClick={()=>setActive("admin")}>
+                                <Link to="/admin" className="flex gap-2"><img src="./admin-icon.svg"/>  {active === "admin" ? "Admin" : ""}</Link>
                             </li>
                         </ul>
                     </div>
                 </div>
+            </div>
+            <div className="relative bottom-[130px] float-right">
                 {colorTheme === "light" ? (
                     <svg
                         onClick={() => setTheme("light")}
@@ -59,7 +65,6 @@ const Footer = () => {
                     </svg>
                 )}
             </div>
-
         </footer>
     )
 }
